@@ -1,22 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LPリサーチ分析ツール
 
-## Getting Started
+Gemini 3.0を使ってLPを分析し、スプレッドシートに保存するツールです。
 
-First, run the development server:
+## 機能
+
+- LPのURLを入力して分析
+- Gemini 3.0で以下の項目を抽出：
+  - いいね（数）
+  - コメント数
+  - 刺さる言葉
+  - 逆説
+  - 読者の代弁
+  - 望み
+- 分析結果をGoogle Sheetsに保存（実装中）
+
+## セットアップ
+
+### 1. 依存関係のインストール
+
+```bash
+npm install
+```
+
+### 2. 環境変数の設定
+
+プロジェクトルートに `.env.local` ファイルを作成し、以下を設定：
+
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+**Gemini APIキーの取得方法**：
+1. [Google AI Studio](https://aistudio.google.com/) にアクセス
+2. APIキーを生成
+3. `.env.local` に設定
+
+### 3. 開発サーバーの起動
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開きます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 使い方
+
+1. LPのURLを入力
+2. 「分析開始」ボタンをクリック
+3. 分析結果が表示されます
+4. （今後）自動的にGoogle Sheetsに保存されます
+
+## 技術スタック
+
+- **Next.js 16** - Reactフレームワーク
+- **Gemini 3.0** - AI分析
+- **Cheerio** - HTMLパース
+- **Google Sheets API** - データ保存（実装中）
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
